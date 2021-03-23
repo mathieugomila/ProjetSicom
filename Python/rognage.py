@@ -12,7 +12,7 @@ import skimage.io as skio
 
 plt.close('all')
 
-filename = r'test1.jpg'
+filename = r'final7.jpg'
 dirpath = r'..\Images_test'
 filepath = join(dirpath, filename)
 
@@ -21,14 +21,20 @@ img = skio.imread(filepath)
 plt.figure(1)
 plt.imshow(img), plt.title('Original image')
 
-def rognage(img):
+def rognage(image):
     
-    dtype=img.dtype
+    dtype=image.dtype
     
-    new_img=np.zeros([1800,2000], dtype)
+    new_img=np.zeros((1800,1650,3), dtype)
     
     for i in range(0,1800):
-        for j in range(0,2000):
-            new_img[i,j]=img[i+600,j+500]
+        for j in range(0,1650):
+            new_img[i,j]=image[i+600,j+650]
     
     return new_img
+
+
+img_rognee = rognage(img)
+
+plt.figure(2)
+plt.imshow(img_rognee), plt.title('Image rognée')
