@@ -1,29 +1,9 @@
-/*
- * file OutputVoltage.ino
- *
- * @ https://github.com/DFRobot/DFRobot_MCP4725
- *
- * connect MCP4725 I2C interface with your board (please reference board compatibility)
- *
- * Output a constant voltage value and print through the serial port.
- *
- * Copyright   [DFRobot](http://www.dfrobot.com), 2016
- * Copyright   GNU Lesser General Public License
- *
- * version  V0.1
- * date  2018-1-15
- */
 #include "Wire.h"
 #include "DFRobot_MCP4725.h"
 #define  REF_VOLTAGE    3300
 
 DFRobot_MCP4725 DAC1;
 DFRobot_MCP4725 DAC2;
-
-uint16_t OUTPUT_VOLTAGE_1 = 2000;     // unit : mV 
-uint16_t OUTPUT_VOLTAGE_2 = 2000;     // unit : mV 
-
-float t = 0;
 
 void setup(void) {
   
@@ -42,13 +22,6 @@ void setup(void) {
 void loop(void) {
 
   Serial.print("DFRobot_MCP4725 output: ");
-  Serial.print(OUTPUT_VOLTAGE_1); 
-  Serial.println(" mV");
-  
-  OUTPUT_VOLTAGE_1 = (cos(2 * 3.1415 * t) + 1.0f) * 1000;
-  OUTPUT_VOLTAGE_2 = (sin(2 * 3.1415 * t) + 1.0f) * 1000 ;  
-  
-  
   
   if (Serial.available() > 0) {
     int data1 = Serial.parseInt();
