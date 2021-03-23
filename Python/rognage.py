@@ -9,32 +9,33 @@ import numpy as np
 import matplotlib.pyplot as plt
 from os.path import join
 import skimage.io as skio
+from picamera import PiCamera
+from time import sleep
 
-plt.close('all')
-
-filename = r'final7.jpg'
-dirpath = r'..\Images_test'
-filepath = join(dirpath, filename)
-
-img = skio.imread(filepath)
-
-plt.figure(1)
-plt.imshow(img), plt.title('Original image')
-
-def rognage(image):
+def photo_rognage(filename = r'final.jpg'):
     
-    dtype=image.dtype
+    dirpath = r'..\Images_test'
+    filepath = join(dirpath, filename)
+    
+    camera = PiCamera()
+    camera.start_preview()
+    sleep(3) #Au moins 2 secondes pour que la caméra prenne une bonne photo
+    camera.capture(filepath)
+    camera.stop_preview()
+
+    img = skio.imread(filepath)    
+    dtype=img.dtype
     
     new_img=np.zeros((1800,1650,3), dtype)
     
     for i in range(0,1800):
         for j in range(0,1650):
-            new_img[i,j]=image[i+600,j+650]
+            new_img[i,j]=img[i+600,j+650]
     
     return new_img
 
 
-img_rognee = rognage(img)
+img_rognee = photo_rognage('Image')
 
-plt.figure(2)
+plt.figure(1)
 plt.imshow(img_rognee), plt.title('Image rognée')
