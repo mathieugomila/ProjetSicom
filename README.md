@@ -10,8 +10,6 @@ Pour créer une grille vide de taille 9x9:
 grille = creationGrilleVide()
 ```
 
----
-
 Pour remplir la i-ème ligne et j-ième colonne (en commençant à l'indice 0) avec la valeur v: 
 
 ```
