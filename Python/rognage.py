@@ -35,7 +35,7 @@ def photo_rognage(filename = r'final.jpg'):
     return new_img
 
 
-img_rognee = photo_rognage('Image')
+#img_rognee = photo_rognage('Image')
 
-plt.figure(1)
-plt.imshow(img_rognee), plt.title('Image rognée')
+#plt.figure(1)
+#plt.imshow(img_rognee), plt.title('Image rognée')

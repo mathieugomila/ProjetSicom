@@ -269,6 +269,7 @@ def tracerSolutionSurGrille(grilleSansChiffreOrigine, offsetX, offsetY, tailleCa
     
     chiffres = [obtenirCourbeChiffreAvecAngle(v, angle, tailleCase) for v in range(1, 10)]
 
+
     for i in range(0, taille):
         for j in range(0, taille):
             print(grilleSansChiffreOrigine[i][j])
