@@ -30,7 +30,7 @@ Cette fonction retourne une grille sur laquelle les 0 correspondent aux cases su
 
 ### Ecriture de la grille (à l'aide de la table traçante) :
 
-Une fois la grille résolue, la position et orientation relative de la grille sur la table, utiliser : 
+Une fois la grille résolue, la position et orientation relative de la grille sur la table connue, utiliser : 
 
 ```
 tracerSolutionSurGrille(grilleSansChiffreOrigine, offsetX, offsetY, tailleCase,  angle)
