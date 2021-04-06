@@ -12,7 +12,7 @@ import skimage.io as skio
 from picamera import PiCamera
 from time import sleep
 
-def photo_rognage(filename = r'final.jpg'):
+def photo_rognage(filename = r'test.jpg'):
     
     dirpath = r'..\Images_test'
     filepath = join(dirpath, filename)

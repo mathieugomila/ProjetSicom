@@ -2,18 +2,21 @@ import rognage
 import resolution
 import ecriture
 
+
 #### 1) Récupérer l'image et rogner les bords de l'image ####
-img_rognee = rognage.photo_rognage('Image')
+img_rognee = rognage.photo_rognage('')
 
-# Recupérer les coordonnées x et y des 4 bords de la grille
-#xOffset, yOffset, tailleCase, angle  = traitementImage.recupererBord(img_rognee)
+import traitementImage
 
-#### 2) Détecter les chiffres présents sur la grille ####
-#grille = traitementImage.detecterChiffres(img_rognee, xOffset, yOffset)
+# Recupérer les coordonnées x et y des 4 bords de la grille et la grille résolue
+grille, angle, xsg, xsd, xid, xig, ysg, ysd, yid, yig  = traitementImage.main(img_rognee)
+offsetX = xig
+offsetY = yig
+tailleCase = (xsd - xsg) /9
 
 #### 3) Résoudre la grille ####
-#grilleSansChiffreOrigine = resolutionGrilleSansChiffreOrigine(grille)
+grilleSansChiffreOrigine = resolution.resolutionGrilleSansChiffreOrigine(grille)
 
 
 #### 4) Commander l'écriture de la grille ####
-#tracerSolutionSurGrille(grilleSansChiffreOrigine, offsetX, offsetY, tailleCase, angle)
+ecriture.tracerSolutionSurGrille(grilleSansChiffreOrigine, offsetX, offsetY, tailleCase, angle)
